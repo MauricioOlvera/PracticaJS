@@ -20,21 +20,35 @@ function operacion(op, n1, n2){
         default:
             break;
     }
-    return res
+    return res;
 }
 
 function hacerTabla(tbl, tipo, lon){
-    if (tipo == "normal"){
-        for(let i=1; i<=lon; i++){
-            let res = tbl * i;
-            let codigo = '<p>' + tbl + ' X ' + i + ' = ' + res + '</p><br>';
-            let p = document.getElementById("resul2")
-            p.textContent = codigo;
-        }
+    switch (tipo) {
+        case "normal":
+            for(let i=1; i<=lon; i++){
+                let res = tbl * i;
+                let codigo = '<p>' + tbl + ' X ' + i + ' = ' + res + '</p>';
+                document.write(codigo);
+            }
+            break;
+
+        case "inversa":
+            for(let i=lon; i>=1; i--){
+                let res = tbl * i;
+                let codigo = '<p>' + tbl + ' X ' + i + ' = ' + res + '</p>';
+                document.write(codigo);
+            }
+            break;
+    
+        default:
+            let codigo1 = "No existe ese tipo de tabla"
+            break;
     }
-    else{
-        
-    }
+
+    document.write('<p>Recargar la pagina para regresar al menu anterior</p>')
+
+    return codigo1;
 }
 
 function calcular(){
